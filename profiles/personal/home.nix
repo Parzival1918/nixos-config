@@ -3,6 +3,7 @@
 	imports = [
 		../../user/shell/shells.nix	
 		../../user/app/terminal/terminal.nix
+		../../user/lang/lang.nix
 	];
 
 	home.username = userSettings.username;
