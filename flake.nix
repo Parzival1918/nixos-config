@@ -14,8 +14,9 @@
 	let
 		systemSettings = {
 			system = "x86_64-linux"; # system architecture
-			hostname = ${userSettings.username} + "-linux"; # hostname
+			hostname = "nixos"; #${userSettings.username} + "-linux"; # hostname
 			profile = "personal"; # system profile
+			timezone = "Europe/London"; # select timezone
 		};
 
 		userSettings = {

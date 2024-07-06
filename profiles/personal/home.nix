@@ -21,4 +21,23 @@
 	};
 
 	home.stateVersion = "24.05";
+	
+	imports = [
+		
+	];
+
+	xdg.enable = true;
+	xdg.userDirs = {
+		enable = true;
+		createDirectories = true;
+		music = "${config.home.homeDirectory}/media/music";
+    		videos = "${config.home.homeDirectory}/media/videos";
+    		pictures = "${config.home.homeDirectory}/media/pictures";
+    		templates = "${config.home.homeDirectory}/templates";
+    		download = "${config.home.homeDirectory}/downloads";
+    		documents = "${config.home.homeDirectory}/documents";
+    		desktop = null;
+    		publicShare = null;
+	};
+	xdg.mime.enable = true;
 }
