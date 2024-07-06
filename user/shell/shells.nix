@@ -7,8 +7,13 @@ let
 	};
 in
 {
+	home.sessionVariables = {
+		EDITOR = "vim";
+	};
+
 	programs.bash = {
 		enable = true;
+		enableCompletion = true;
 		shellAliases = myAliases;
 	};
 

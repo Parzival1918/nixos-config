@@ -1,29 +1,19 @@
 { config, pkgs, userSettings, ... }:
 {
+	imports = [
+		../../user/shell/shells.nix	
+		../../user/app/terminal/terminal.nix
+	];
+
 	home.username = userSettings.username;
 	home.homeDirectory = "/home/" + userSettings.username;
 
 	programs.home-manager.enable = true;
+	home.stateVersion = "24.05";
 
 	home.packages = with pkgs; [
 		fortune
 		lolcat
-	];
-
-	programs.bash = {
-		enable = true;
-		enableCompletion = true;
-		shellAliases = {
-			ll = "ls -l";
-			la = "ls -a";	
-			".." = "cd ..";
-		};
-	};
-
-	home.stateVersion = "24.05";
-	
-	imports = [
-		../../user/shell/shells.nix	
 	];
 
 	xdg.enable = true;
