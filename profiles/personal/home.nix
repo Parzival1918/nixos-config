@@ -23,7 +23,7 @@
 	home.stateVersion = "24.05";
 	
 	imports = [
-		
+		../../user/shell/shells.nix	
 	];
 
 	xdg.enable = true;
