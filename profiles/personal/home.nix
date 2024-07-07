@@ -6,6 +6,7 @@
 		../../user/lang/lang.nix
 		../../user/app/coding/neovim/neovim.nix
         ../../user/cli-tui/default.nix
+        ../../user/app/browser/firefox.nix
 	];
 
 	home.username = userSettings.username;
