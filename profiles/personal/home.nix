@@ -1,9 +1,10 @@
-{ config, pkgs, userSettings, ... }:
+{ config, pkgs, userSettings, inputs, ... }:
 {
 	imports = [
 		../../user/shell/shells.nix	
 		../../user/app/terminal/terminal.nix
 		../../user/lang/lang.nix
+		../../user/app/coding/neovim/neovim.nix
 	];
 
 	home.username = userSettings.username;
