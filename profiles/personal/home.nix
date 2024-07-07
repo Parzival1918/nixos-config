@@ -17,7 +17,10 @@
 	home.packages = with pkgs; [
 		fortune
 		lolcat
+        nerdfonts
 	];
+
+    fonts.fontconfig.enable = true;
 
 	xdg.enable = true;
 	xdg.userDirs = {

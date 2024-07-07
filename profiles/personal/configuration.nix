@@ -110,7 +110,6 @@
     alacritty
     dmenu
     gnome.gnome-keyring
-    nerdfonts
     nitrogen
     pasystray
     picom
