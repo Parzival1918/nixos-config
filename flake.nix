@@ -18,6 +18,8 @@
             url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+
+        stylix.url = "github:danth/stylix";
 	};
 
 	outputs = {self, nixpkgs, home-manager, ... }@inputs:
@@ -27,6 +29,9 @@
 			hostname = "nixos"; #${userSettings.username} + "-linux"; # hostname
 			profile = "personal"; # system profile
 			timezone = "Europe/London"; # select timezone
+            style = "gruvbox-dark-soft"; # select style from styles/ dir
+            wallpaper = "https://images.hdqwalls.com/download/kokushibo-demon-slayer-wv-1920x1080.jpg";
+            wallpaperSHA256 = "88c3977f46e2175472e4cbc354e4dc1e2ae89fb89e6516bdd073781e2cecf615";
 		};
 
 		userSettings = {
@@ -43,6 +48,7 @@
 				system = systemSettings.system; # System architecture
 				modules = [
 					(./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")	
+                    inputs.stylix.nixosModules.stylix
 
 					home-manager.nixosModules.home-manager {
 						home-manager.useGlobalPkgs = true;
