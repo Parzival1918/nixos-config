@@ -2,12 +2,13 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, systemSettings, ... }:
+{ config, pkgs, systemSettings, userSettings, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../default_pkgs.nix
     ];
 
   # Bootloader.
@@ -80,19 +81,13 @@
     };
   };   
 
-  # Configure keymap in X11
-  #services.xserver = {
-  #  layout = "es";
-  #  xkbVariant = "cat";
-  #};
-
   # Configure console keymap
   console.keyMap = "es";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.unstraycato = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "Pedro Juan Royo";
+    description = "${userSettings.name}";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
   };
@@ -104,10 +99,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    git
-    kitty
-    alacritty
     dmenu
     gnome.gnome-keyring
     nitrogen

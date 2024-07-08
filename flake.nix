@@ -47,7 +47,7 @@
 					home-manager.nixosModules.home-manager {
 						home-manager.useGlobalPkgs = true;
 						home-manager.useUserPackages = true;
-						home-manager.backupFileExtension = "home_backup";
+						home-manager.backupFileExtension = "backup";
 						
 						home-manager.users.${userSettings.username} = import (./. + "/profiles" + ("/" + systemSettings.profile) + "/home.nix");
 						
