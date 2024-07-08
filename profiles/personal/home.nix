@@ -8,6 +8,7 @@
         ../../user/cli-tui/default.nix
         ../../user/app/browser/firefox.nix
         ../../user/app/entertainment
+        ../../user/app/desktop
 	];
 
 	home.username = userSettings.username;
