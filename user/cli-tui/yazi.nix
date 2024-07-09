@@ -1,10 +1,9 @@
 {config, pkgs, ...}:
 {
     programs.yazi = { # file manager
-            enable = true;
+        enable = true;
 
-            enableBashIntegration = true;
-            enableFishIntegration = true;
-        };
+        enableBashIntegration = true;
+        enableFishIntegration = true;
     };
 }
