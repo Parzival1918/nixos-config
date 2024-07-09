@@ -1,5 +1,9 @@
 {config, pkgs, ...}:
 {
+    imports = [
+        ./git.nix
+    ];
+
     home.packages = with pkgs; [
         hyperfine # benchmarking tool
     ];
