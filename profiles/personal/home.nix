@@ -4,11 +4,12 @@
 		../../user/shell/shells.nix	
 		../../user/app/terminal/terminal.nix
 		../../user/lang/lang.nix
-		../../user/app/coding/neovim/neovim.nix
+		../../user/app/coding
         ../../user/cli-tui/default.nix
         ../../user/app/browser/firefox.nix
         ../../user/app/entertainment
         ../../user/app/desktop
+        ../../user/documents
 	];
 
 	home.username = userSettings.username;
