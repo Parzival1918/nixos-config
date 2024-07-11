@@ -52,23 +52,24 @@
       enable = true;
       windowManager.i3 = {
         enable = true;
-        extraPackages = with pkgs; [
-          i3status
-        ];
+        #extraPackages = with pkgs; [
+        #  i3status
+        #];
       };
-      desktopManager = {
-        xterm.enable = false;
-        xfce = {
-          enable = true;
-          noDesktop = true;
-          enableXfwm = false;
-        };
-      };
-      displayManager = {
-        lightdm.enable = true;
-      };
+      #desktopManager = {
+        #xterm.enable = false;
+        #xfce = {
+          #enable = true;
+          #noDesktop = true;
+          #enableXfwm = false;
+        #};
+      #};
+      #displayManager = {
+        #lightdm.enable = true;
+      #};
     }; 
-    displayManager.defaultSession = "xfce+i3";
+    #displayManager.defaultSession = "xfce+i3";
+    displayManager.defaultSession = "none+i3";
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
     blueman.enable = true;

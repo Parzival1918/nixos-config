@@ -10,6 +10,7 @@
         ../../user/app/entertainment
         ../../user/app/desktop
         ../../user/documents
+        ../../user/wm/i3.nix
 	];
 
 	home.username = userSettings.username;
