@@ -12,6 +12,11 @@ let
             { command = "systemctl --user restart polybar"; always = true; notification = false; }
         ];
 
+        gaps = {
+            inner = 8;
+            outer = 1;
+        };
+
         bars = []; # remove default bars
     };
 in
