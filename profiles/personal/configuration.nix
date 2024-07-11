@@ -8,8 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ../../system/hardware-configuration.nix
-      ../default_pkgs.nix
-      ../stylix.nix
+      ../../system/pkgs.nix
+      ../../system/stylix/stylix.nix
     ];
 
   # Bootloader.

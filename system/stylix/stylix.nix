@@ -4,7 +4,7 @@
         enable = true;
         polarity = "dark";
 
-        base16Scheme = ../system/styles/${systemSettings.style}.yaml;
+        base16Scheme = ./styles/${systemSettings.style}.yaml;
 
         image = pkgs.fetchurl {
             url = "${systemSettings.wallpaper}";
