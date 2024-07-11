@@ -6,6 +6,7 @@ let
         modifier = "${mod}";
 
         terminal = "${userSettings.terminal}";
+        menu = "${pkgs.rofi}/bin/rofi -mode drun -show drun -show-icons";
 
         startup = [
             #{ command = "polybar bar1 &"; always = false; notification = false; }
@@ -16,6 +17,10 @@ let
             inner = 8;
             outer = 1;
         };
+
+        window.titlebar = false;
+
+        defaultWorkspace = "workspace number 1";
 
         bars = []; # remove default bars
     };
