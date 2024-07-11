@@ -1,4 +1,4 @@
-{config, pkgs, userSettings, ...}:
+{config, pkgs, lib, userSettings, ...}:
 let
     mod = "Mod4";
 
@@ -7,6 +7,10 @@ let
 
         terminal = "${userSettings.terminal}";
         menu = "${pkgs.rofi}/bin/rofi -mode drun -show drun -show-icons";
+
+        keybindings = lib.mkOptionDefault {
+            "${mod}+q" = "kill";
+        };
 
         startup = [
             #{ command = "polybar bar1 &"; always = false; notification = false; }
