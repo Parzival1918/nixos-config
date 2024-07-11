@@ -8,7 +8,7 @@ let
         terminal = "${userSettings.terminal}";
 
         startup = [
-            { command = "polybar bar1 &"; always = false; notification = false; }
+            #{ command = "polybar bar1 &"; always = false; notification = false; }
             { command = "systemctl --user restart polybar"; always = true; notification = false; }
         ];
 
