@@ -13,6 +13,7 @@
       ../../system/bluetooth
       ../../system/sound
       ../../system/network
+      ../../system/security
     ];
 
   # Bootloader.
@@ -88,27 +89,6 @@
   programs = {
     thunar.enable = true;
     dconf.enable = true;
-  };
-
-  security = {
-    polkit.enable = true;
-    rtkit.enable = true;
-  };
-
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-	TimeoutStopSec = 10;
-      };
-    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
