@@ -8,6 +8,9 @@
         # shells
         bash
         fish
+
+        gnome.gnome-keyring
+        pasystray
     ];
 
     users.defaultUserShell = pkgs.fish;

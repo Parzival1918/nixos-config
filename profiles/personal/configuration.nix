@@ -11,7 +11,7 @@
       ../../system/pkgs.nix
       ../../system/stylix/stylix.nix
       ../../system/bluetooth
-      ../../system/sound
+      ../../system/audio
       ../../system/network
       ../../system/security
     ];
@@ -72,18 +72,8 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    dmenu
-    gnome.gnome-keyring
-    nitrogen
-    pasystray
-    picom
-    polkit_gnome
-    rofi
-    pulseaudioFull
-    networkmanagerapplet
+    #nitrogen
   ];
 
   programs = {

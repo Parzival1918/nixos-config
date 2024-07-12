@@ -11,6 +11,7 @@
         ../../user/app/desktop
         ../../user/documents
         ../../user/wm/i3
+        ../../user/fonts
 	];
 
 	home.username = userSettings.username;
@@ -22,7 +23,6 @@
 	home.packages = with pkgs; [
 		fortune
 		lolcat
-        nerdfonts
 	];
 
     fonts.fontconfig.enable = true;

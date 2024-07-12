@@ -1,5 +1,9 @@
 {config, pkgs, ...}:
 {
+    environment.systemPackages = with pkgs; [
+        pulseaudioFull
+    ];
+
     services.pipewire = {
         enable = true;
 

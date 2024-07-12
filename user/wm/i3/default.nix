@@ -34,6 +34,11 @@ in
         ./picom.nix
     ];
 
+    home.packages = with pkgs; [
+        dmenu
+        rofi
+    ];
+
     xsession.windowManager.i3 = {
         enable = true;
         package = pkgs.i3-gaps;
