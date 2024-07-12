@@ -10,6 +10,9 @@
       ../../system/hardware-configuration.nix
       ../../system/pkgs.nix
       ../../system/stylix/stylix.nix
+      ../../system/bluetooth
+      ../../system/sound
+      ../../system/network
     ];
 
   # Bootloader.
@@ -17,18 +20,12 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  networking.hostName = systemSettings.hostname; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
   # Set your time zone.
-  time.timeZone = systemSettings.timezone;
+  time.timeZone = "${systemSettings.timezone}";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -49,6 +46,7 @@
     xserver = {
       xkb.layout = "${systemSettings.keyboardLayout}";
       xkb.variant = lib.mkIf (systemSettings.keyboardVariant != null) ("${systemSettings.keyboardVariant}");
+
       enable = true;
       windowManager.i3 = {
         enable = true;
@@ -57,19 +55,10 @@
     displayManager.defaultSession = "none+i3";
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
-    blueman.enable = true;
-    pipewire = {
-      enable = true;
-      alsa = {
-        enable = true;
-        support32Bit = true;
-      };	
-      pulse.enable = true;
-    };
-  };   
+  };
 
   # Configure console keymap
-  console.keyMap = "es";
+  console.keyMap = "${systemSettings.keyboardLayout}";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
@@ -81,7 +70,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.pulseaudio = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
