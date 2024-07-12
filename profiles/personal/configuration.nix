@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, systemSettings, userSettings, ... }:
+{ config, pkgs, lib, systemSettings, userSettings, ... }:
 
 {
   imports =
@@ -47,28 +47,13 @@
 
   services = {
     xserver = {
-      xkb.layout = "es";
-      xkb.variant = "cat";
+      xkb.layout = "${systemSettings.keyboardLayout}";
+      xkb.variant = lib.mkIf (systemSettings.keyboardVariant != null) ("${systemSettings.keyboardVariant}");
       enable = true;
       windowManager.i3 = {
         enable = true;
-        #extraPackages = with pkgs; [
-        #  i3status
-        #];
       };
-      #desktopManager = {
-        #xterm.enable = false;
-        #xfce = {
-          #enable = true;
-          #noDesktop = true;
-          #enableXfwm = false;
-        #};
-      #};
-      #displayManager = {
-        #lightdm.enable = true;
-      #};
     }; 
-    #displayManager.defaultSession = "xfce+i3";
     displayManager.defaultSession = "none+i3";
     gvfs.enable = true;
     gnome.gnome-keyring.enable = true;
