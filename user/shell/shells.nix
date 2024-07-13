@@ -8,7 +8,7 @@ let
 in
 {
 	home.sessionVariables = {
-		EDITOR = "vim";
+		EDITOR = "nvim";
 	};
 
 	programs.bash = {
@@ -20,5 +20,14 @@ in
 	programs.fish = {
 		enable = true;
 		shellAliases = myAliases;
+
+        functions = {
+            gitignore = "curl -sL https://www.gitignore.io/api/$argv"; # gitignore creation
+
+            fish_greeting = ''
+                set_color E78F08
+                fortune
+            '';
+        };
 	};
 }

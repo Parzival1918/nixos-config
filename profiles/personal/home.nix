@@ -20,11 +20,6 @@
 	programs.home-manager.enable = true;
 	home.stateVersion = "24.05";
 
-	home.packages = with pkgs; [
-		fortune
-		lolcat
-	];
-
     fonts.fontconfig.enable = true;
 
 	xdg.enable = true;

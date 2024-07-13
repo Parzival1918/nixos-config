@@ -8,6 +8,8 @@
 
     home.packages = with pkgs; [
         hyperfine # benchmarking tool
+        lolcat
+        fortune
     ];
 
     programs = {
