@@ -5,11 +5,10 @@ let
     config = {
         modifier = "${mod}";
 
-        terminal = "${userSettings.terminal}";
-        menu = "${pkgs.rofi}/bin/rofi -mode drun -show drun -show-icons";
+        #terminal = "${userSettings.terminal}";
+        #menu = "${pkgs.rofi}/bin/rofi -mode drun -show drun -show-icons";
 
         keybindings = lib.mkOptionDefault {
-            "${mod}+q" = "kill";
         };
 
         startup = [
@@ -31,6 +30,7 @@ let
 in
 {
     imports = [
+        ./default_keybindings.nix
         ./picom.nix
     ];
 
