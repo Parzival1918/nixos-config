@@ -2,11 +2,10 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, systemSettings, userSettings, ... }:
+{ config, pkgs, lib, inputs, systemSettings, userSettings, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
+  imports = [ # Include the results of the hardware scan.
       ../../system/hardware-configuration.nix
       ../../system/pkgs.nix
       ../../system/stylix/stylix.nix
@@ -14,7 +13,10 @@
       ../../system/audio
       ../../system/network
       ../../system/security
-    ];
+  ];
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  programs.command-not-found.enable = false;
 
   # Bootloader.
   boot.loader.grub.enable = true;

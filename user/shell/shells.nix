@@ -29,5 +29,17 @@ in
                 fortune
             '';
         };
+
+        plugins = [
+            {
+                name = "license";
+                src = pkgs.fetchFromGitHub {
+                    owner = "oh-my-fish";
+                    repo = "plugin-license";
+                    rev = "0155b16f102957ec0c734a90979245dc1073f979";
+                    sha256 = "Bi9Q5rekZoyXYbRV+U4SmwCdqCl0pFupzm5si7SxFns=";
+                };
+            }
+        ];
 	};
 }
