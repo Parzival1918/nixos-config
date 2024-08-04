@@ -6,6 +6,7 @@
         ./yazi.nix
         ./fzf.nix
         ./zellij.nix
+        ./eza.nix
     ];
 
     home.packages = with pkgs; [
