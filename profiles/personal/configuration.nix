@@ -13,6 +13,7 @@
       ../../system/audio
       ../../system/network
       ../../system/security
+      ../../system/scripts
   ];
 
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];

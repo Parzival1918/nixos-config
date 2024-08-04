@@ -48,7 +48,7 @@
 		pkgs = nixpkgs.legacyPackages.${systemSettings.system};
 	in {
 		nixosConfigurations = {
-			nixos = lib.nixosSystem {
+			system = lib.nixosSystem {
 				system = systemSettings.system; # System architecture
 				modules = [
 					(./. + "/profiles" + ("/" + systemSettings.profile) + "/configuration.nix")	
