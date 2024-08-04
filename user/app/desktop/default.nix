@@ -2,5 +2,6 @@
 {
     imports = [
         ./polybar
+        ./rofi.nix
     ];
 }
