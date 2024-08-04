@@ -32,8 +32,8 @@
             keyboardLayout = "es"; # keyboard layout
             keyboardVariant = "cat"; # set keyboard variant if there is one, else set to null
             style = "gruvbox-dark-soft"; # select style from styles/ dir
-            wallpaper = "https://images.hdqwalls.com/download/kokushibo-demon-slayer-wv-1920x1080.jpg";
-            wallpaperSHA256 = "88c3977f46e2175472e4cbc354e4dc1e2ae89fb89e6516bdd073781e2cecf615";
+            wallpaper = "https://images.hdqwalls.com/wallpapers/anime-girl-meteor-streak-10k-0t.jpg";
+            wallpaperSHA256 = "sha256-rB/HCdk4Zs/+MsZsC9noby4qEnbl4QT+XFy2mx5Uecg=";
 		};
 
 		userSettings = {
