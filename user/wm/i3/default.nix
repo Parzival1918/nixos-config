@@ -2,7 +2,7 @@
 let
     mod = "Mod4";
 
-    config = {
+    configuration = {
         modifier = "${mod}";
 
         #terminal = "${userSettings.terminal}";
@@ -43,6 +43,6 @@ in
         enable = true;
         package = pkgs.i3-gaps;
 
-        inherit config;
+        config = configuration;
     };
 }
