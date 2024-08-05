@@ -23,8 +23,8 @@ in
             disabled = #707880
 
             [bar/bar1]
-            font-0 = "DejaVu Sans Mono:size=11;2"
-            font-1 = "DejaVu Sans Mono:size=9:weight=bold;2"
+            font-0 = "DejaVu Sans Mono:size=13;2"
+            font-1 = "DejaVu Sans Mono:size=10:weight=bold;2"
             width = 100%
             height = 24pt
 
