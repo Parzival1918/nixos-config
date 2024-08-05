@@ -40,7 +40,7 @@
 			username = "unstraycato"; # username
 			name = "Pedro Juan Royo"; # full name
             email = "pedro.juan.royo@gmail.com"; # email
-			dotfilesPath = "~/dotfiles"; # absolute path of dotfiles
+			dotfilesPath = "~/.dotfiles"; # absolute path of dotfiles
             terminal = "alacritty"; # default terminal
 		};	
 
