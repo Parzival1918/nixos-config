@@ -4,10 +4,21 @@
 		clipboard = {
      			 # Use system clipboard
       			register = "unnamedplus";
-    		};
+        };
+
+        globals = {
+            # Set <space> as the leader key
+            # See `:help mapleader`
+            mapleader = " ";
+            maplocalleader = " ";
+
+            # Set to true if you have a Nerd Font installed and selected in the terminal
+            have_nerd_font = true;
+        };
 
 		opts = {
 			updatetime = 100; # Faster completion
+            timeoutlen = 300;
 
       			# Line numbers
       			relativenumber = false; # Relative line numbers
@@ -17,6 +28,7 @@
       			mousemodel = "extend"; # Mouse right-click extends the current selection
       			splitbelow = true; # A new window is put below the current one
       			splitright = true; # A new window is put right of the current one
+                breakindent = true;
 
       			swapfile = false; # Disable the swap file
       			modeline = true; # Tags such as 'vim:ft=sh'
@@ -29,7 +41,7 @@
       			smartcase = true; # Override the 'ignorecase' option if the search pattern contains upper
       			#   case characters
       			scrolloff = 8; # Number of screen lines to show around the cursor
-      			cursorline = false; # Highlight the screen line of the cursor
+      			cursorline = true; # Highlight the screen line of the cursor
       			cursorcolumn = false; # Highlight the screen column of the cursor
       			signcolumn = "yes"; # Whether to show the signcolumn
       			colorcolumn = "100"; # Columns to highlight
@@ -39,6 +51,7 @@
       			spell = false; # Highlight spelling mistakes (local to window)
       			wrap = true; # Prevent text from wrapping
 			showmode = false;
+                hlsearch = true;
 			
       			# Tab options
       			tabstop = 4; # Number of spaces a <Tab> in the text stands for (local to buffer)
@@ -59,5 +72,40 @@
 				nbsp = "␣";
 			};	
 		};
+
+        autoGroups = {
+            kickstart-highlight-yank = {
+                clear = true;
+            };
+        };
+
+        autoCmd = [
+        # Highlight when yanking (copying) text
+        #  Try it with `yap` in normal mode
+        #  See `:help vim.highlight.on_yank()`
+            {
+                event = ["TextYankPost"];
+                desc = "Highlight when yanking (copying) text";
+                group = "kickstart-highlight-yank";
+                callback.__raw = ''
+                function()
+                    vim.highlight.on_yank()
+                end
+                '';
+            }
+        ];
+
+        # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapre
+        extraConfigLuaPre = ''
+        if vim.g.have_nerd_font then
+            require('nvim-web-devicons').setup {}
+        end
+        '';
+
+        # The line beneath this is called `modeline`. See `:help modeline`
+        # https://nix-community.github.io/nixvim/NeovimOptions/index.html?highlight=extraplugins#extraconfigluapost
+        extraConfigLuaPost = ''
+        -- vim: ts=2 sts=2 sw=2 et
+        '';
 	};
 }
