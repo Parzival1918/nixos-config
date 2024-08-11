@@ -1,5 +1,6 @@
 alias gc := garbage-collect
 alias gcf := garbage-collect-full
+alias r := rebuild
 
 # list all recipes
 @default:
