@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, lib, inputs, systemSettings, userSettings, ... }:
+{ config, pkgs, pkgs-unstable, lib, inputs, systemSettings, userSettings, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
@@ -77,9 +77,14 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [
-    #nitrogen
-  ];
+  environment.systemPackages = 
+    (with pkgs; [
+        #nitrogen
+    ])
+    ++
+    (with pkgs-unstable; [
+        just
+    ]);
 
   programs = {
     thunar.enable = true;

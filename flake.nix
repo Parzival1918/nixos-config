@@ -3,6 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+		nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 		
 		home-manager = {
 			url = "github:nix-community/home-manager/release-24.05";
@@ -10,8 +11,8 @@
 		};
 
 		nixvim = {
-			 url = "github:nix-community/nixvim/nixos-24.05";
-        		inputs.nixpkgs.follows = "nixpkgs";
+		    url = "github:nix-community/nixvim/nixos-24.05";
+            inputs.nixpkgs.follows = "nixpkgs";
 		};
 
         firefox-addons = {
@@ -22,7 +23,7 @@
         stylix.url = "github:danth/stylix";
 	};
 
-	outputs = {self, nixpkgs, home-manager, ... }@inputs:
+	outputs = {self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
 	let
 		systemSettings = {
 			system = "x86_64-linux"; # system architecture
@@ -46,6 +47,7 @@
 
 		lib = nixpkgs.lib;
 		pkgs = nixpkgs.legacyPackages.${systemSettings.system};
+		pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
 	in {
 		nixosConfigurations = {
 			system = lib.nixosSystem {
@@ -63,6 +65,7 @@
 						
 						home-manager.extraSpecialArgs = {
 							inherit inputs;
+                            inherit nixpkgs-unstable;
 							inherit systemSettings;
 							inherit userSettings;
 						};
@@ -71,6 +74,7 @@
 				
 				specialArgs = {
                     inherit inputs;
+                    inherit nixpkgs-unstable;
 					inherit systemSettings;
 					inherit userSettings;
 				};
