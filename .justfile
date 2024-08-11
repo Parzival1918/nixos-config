@@ -1,3 +1,6 @@
+alias gc := garbage-collect
+alias gcf := garbage-collect-full
+
 # list all recipes
 @default:
     just --list
@@ -16,3 +19,7 @@ garbage-collect-full:
 garbage-collect time='7d':
     sudo nix-collect-garbage --delete-older-than {{time}}
     nix-collect-garbage --delete-older-than {{time}}
+
+# update flake inputs
+update:
+    sudo nix flake update
