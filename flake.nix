@@ -65,7 +65,7 @@
 						
 						home-manager.extraSpecialArgs = {
 							inherit inputs;
-                            inherit nixpkgs-unstable;
+                            inherit pkgs-unstable;
 							inherit systemSettings;
 							inherit userSettings;
 						};
@@ -74,7 +74,7 @@
 				
 				specialArgs = {
                     inherit inputs;
-                    inherit nixpkgs-unstable;
+                    inherit pkgs-unstable;
 					inherit systemSettings;
 					inherit userSettings;
 				};
