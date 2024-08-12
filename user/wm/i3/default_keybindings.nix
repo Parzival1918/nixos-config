@@ -10,6 +10,7 @@ in
             "${mod}+Return" = "exec ${terminal}";
             "${mod}+q" = "kill";
             "${mod}+d" = "exec ${menu}";
+            "${mod}+Shift+e" = "exec ${pkgs.fish}/bin/fish ${./scripts/exit.fish}";
 
             "${mod}+Left" = "focus left";
             "${mod}+Down" = "focus down";
@@ -71,8 +72,8 @@ in
 
             "${mod}+Shift+c" = "reload";
             "${mod}+Shift+r" = "restart";
-            "${mod}+Shift+e" =
-                "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
+            #"${mod}+Shift+e" =
+            #    "exec i3-nagbar -t warning -m 'Do you want to exit i3?' -b 'Yes' 'i3-msg exit'";
 
             "${mod}+r" = "mode resize";
         };
