@@ -6,8 +6,12 @@ alias r := rebuild
 @default:
     just --list
 
+# move Firefox search.json.mozlz4 
+firefox-move:
+    rm ~/.mozilla/firefox/unstraycato/search.json.mozlz4
+
 # rebuild system and user configuration
-rebuild target='system':
+rebuild target='system': firefox-move
     git add -AN
     sudo nixos-rebuild switch --flake .#{{target}}
 
