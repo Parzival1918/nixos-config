@@ -1,8 +1,15 @@
-{config, pkgs, lib, userSettings, ...}:
+{config, pkgs, pkgs-unstable, lib, userSettings, ...}:
 let
     colors = config.lib.stylix.colors;
 in
 {
+    # NOTE: Fix polybar service env
+    # from: https://github.com/nix-community/home-manager/issues/1616
+    systemd.user.services.polybar = {
+        Service.Environment = lib.mkForce ""; # to override the package's default configuration
+        Service.PassEnvironment = "PATH"; # so that the entire PATH is passed to this service (alternatively, you can import the entire PATH to systemd at startup, which I'm not sure is recommended
+    };
+
     services.polybar = {
         enable = true;
 
@@ -25,6 +32,7 @@ in
             [bar/bar1]
             font-0 = "DejaVu Sans Mono:size=13;2"
             font-1 = "DejaVu Sans Mono:size=10:weight=bold;2"
+            font-2 = "DejaVu Sans Mono:size=13:weight=bold;2"
             width = 100%
             height = 24pt
 
@@ -98,7 +106,7 @@ in
 
             mount-0 = /
 
-            label-mounted = %{F#${colors.base05}}%mountpoint%%{F-} %percentage_used%%
+            label-mounted = %{T3}%{F#${colors.base05}}%mountpoint%%{F-}%{T-} %percentage_used%%
 
             label-unmounted = %mountpoint% not mounted
             label-unmounted-foreground = ''\${colors.disabled}
@@ -106,7 +114,7 @@ in
             [module/pulseaudio]
             type = internal/pulseaudio
 
-            format-volume-prefix = "VOL "
+            format-volume-prefix = %{T3}VOL %{T-}
             format-volume-prefix-foreground = ''\${colors.primary}
             format-volume = <label-volume>
 
@@ -116,13 +124,14 @@ in
             label-muted-foreground = ''\${colors.disabled}
 
             ; Right and Middle click
+            ; click-right = ${pkgs-unstable.pavucontrol}
             click-right = pavucontrol
 
             [module/xkeyboard]
             type = internal/xkeyboard
             blacklist-0 = num lock
 
-            label-layout = %layout%
+            label-layout = %{T3}%layout%%{T-}
             label-layout-foreground = ''\${colors.primary}
 
             label-indicator-padding = 2
@@ -133,14 +142,14 @@ in
             [module/memory]
             type = internal/memory
             interval = 2
-            format-prefix = "RAM "
+            format-prefix = %{T3}RAM %{T-}
             format-prefix-foreground = ''\${colors.primary}
             label = %percentage_used:2%%
 
             [module/cpu]
             type = internal/cpu
             interval = 2
-            format-prefix = "CPU "
+            format-prefix = %{T3}CPU %{T-}
             format-prefix-foreground = ''\${colors.primary}
             label = %percentage:2%%
 
@@ -154,19 +163,19 @@ in
             [module/wlan]
             inherit = network-base
             interface-type = wireless
-            label-connected = %{F${colors.base05}}%ifname%%{F-} %essid% %local_ip%
+            label-connected = %{T3}%{F${colors.base05}}%ifname%%{F-}%{T-} %essid% %local_ip%
 
             [module/eth]
             inherit = network-base
             interface-type = wired
-            label-connected = %{F${colors.base05}}%ifname%%{F-} %local_ip%
+            label-connected = %{T3}%{F${colors.base05}}%ifname%%{F-}%{T-} %local_ip%
 
             [module/date]
             type = internal/date
             interval = 1
 
-            date = %H:%M
-            date-alt = %Y-%m-%d %H:%M:%S
+            date = %{T3}%H:%M%{T-}
+            date-alt = %{T3}%Y-%m-%d %H:%M:%S%{T-}
 
             label = %date%
             label-foreground = ''\${colors.primary}
@@ -174,13 +183,15 @@ in
             [module/logtext]
             type = custom/text
 
-            format = <label>
+            format = %{T3}<label>%{T-}
             label = ${userSettings.username}
 
             format-padding = 1
             format-background = ''\${colors.background-alt}
             format-foreground = ''\${colors.alert}
-            ;click-left = $HOME/.config/i3/exit.sh
+
+            ; click-left = ${pkgs.fish}/bin/fish ${./../../../wm/i3/scripts/exit.fish}
+            click-left = fish ${./../../../wm/i3/scripts/exit.fish}
 
             [settings]
             screenchange-reload = true

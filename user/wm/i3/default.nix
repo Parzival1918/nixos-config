@@ -8,11 +8,8 @@ let
         #terminal = "${userSettings.terminal}";
         #menu = "${pkgs.rofi}/bin/rofi -mode drun -show drun -show-icons";
 
-        keybindings = lib.mkOptionDefault {
-        };
-
         startup = [
-            #{ command = "polybar bar1 &"; always = false; notification = false; }
+            #{ command = "${pkgs.polybar} bar1 &"; always = false; notification = false; }
             { command = "systemctl --user restart polybar"; always = true; notification = false; }
         ];
 

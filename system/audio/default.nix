@@ -1,8 +1,13 @@
-{config, pkgs, ...}:
+{config, pkgs, pkgs-unstable, ...}:
 {
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = 
+    (with pkgs; [
         pulseaudioFull
-    ];
+    ])
+    ++
+    (with pkgs-unstable; [
+        pavucontrol
+    ]);
 
     services.pipewire = {
         enable = true;

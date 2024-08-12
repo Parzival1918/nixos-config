@@ -8,7 +8,7 @@ alias r := rebuild
 
 # move Firefox search.json.mozlz4 
 firefox-move:
-    rm ~/.mozilla/firefox/unstraycato/search.json.mozlz4
+    -rm ~/.mozilla/firefox/unstraycato/search.json.mozlz4
 
 # rebuild system and user configuration
 rebuild target='system': firefox-move

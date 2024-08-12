@@ -2,7 +2,7 @@
 let
     mod = "Mod4";
     menu = "${pkgs.rofi}/bin/rofi -mode drun -show drun -show-icons";
-    terminal = "${userSettings.terminal}";
+    terminal = "${pkgs.${userSettings.terminal}}/bin/${userSettings.terminal}";
 in
 {
     xsession.windowManager.i3 = {
