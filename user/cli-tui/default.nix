@@ -7,6 +7,7 @@
         ./fzf.nix
         ./zellij.nix
         ./eza.nix
+        ./direnv.nix
     ];
 
     home.packages = with pkgs; [
