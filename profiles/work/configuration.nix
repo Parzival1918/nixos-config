@@ -22,9 +22,9 @@
 
   # Bootloader.
   custom.bootloader = {
-    enable = true;
+    enble = true;
     type = systemSettings.bootloader;
-  };
+  }
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

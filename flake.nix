@@ -28,21 +28,22 @@
 		systemSettings = {
 			system = "x86_64-linux"; # system architecture
 			hostname = "nixos"; #${userSettings.username} + "-linux"; # hostname
+			bootloader = "efi"; # bootloader settings, either efi or grub
 			profile = "personal"; # system profile
 			timezone = "Europe/London"; # select timezone
-            keyboardLayout = "es"; # keyboard layout
-            keyboardVariant = "cat"; # set keyboard variant if there is one, else set to null
-            style = "gruvbox-dark-soft"; # select style from styles/ dir
-            wallpaper = "https://images.hdqwalls.com/wallpapers/anime-girl-meteor-streak-10k-0t.jpg";
-            wallpaperSHA256 = "sha256-rB/HCdk4Zs/+MsZsC9noby4qEnbl4QT+XFy2mx5Uecg=";
+			keyboardLayout = "es"; # keyboard layout
+			keyboardVariant = "cat"; # set keyboard variant if there is one, else set to null
+			style = "gruvbox-dark-soft"; # select style from styles/ dir
+			wallpaper = "https://images.hdqwalls.com/wallpapers/anime-girl-meteor-streak-10k-0t.jpg";
+			wallpaperSHA256 = "sha256-rB/HCdk4Zs/+MsZsC9noby4qEnbl4QT+XFy2mx5Uecg=";
 		};
 
 		userSettings = {
 			username = "unstraycato"; # username
 			name = "Pedro Juan Royo"; # full name
-            email = "pedro.juan.royo@gmail.com"; # email
+			email = "pedro.juan.royo@gmail.com"; # email
 			dotfilesPath = "~/.dotfiles"; # absolute path of dotfiles
-            terminal = "alacritty"; # default terminal
+			terminal = "alacritty"; # default terminal
 		};	
 
 		lib = nixpkgs.lib;
