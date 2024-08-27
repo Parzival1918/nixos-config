@@ -6,7 +6,7 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-      ../../system/hardware-configuration.nix
+      ./hardware-configuration.nix
       ../../system/pkgs.nix
       ../../system/stylix/stylix.nix
       ../../system/bluetooth
