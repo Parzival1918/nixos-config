@@ -10,14 +10,14 @@
             "terminal.integrated.fontSize" = lib.mkForce 15;
         };
 
-        extensions = with pkgs.vscode-extensions; [
-            rust-lang.rust-analyzer
-            ms-python.python
-            ms-python.vscode-pylance
-            github.copilot
-            github.copilot-chat
-            mgt19937.typst-preview
-            nvarner.typst-lsp
-        ];
+        #extensions = with pkgs.vscode-extensions; [
+            #rust-lang.rust-analyzer
+            #ms-python.python
+            #ms-python.vscode-pylance
+            #github.copilot
+            #github.copilot-chat
+            #mgt19937.typst-preview
+            #nvarner.typst-lsp
+        #];
     };
 }
