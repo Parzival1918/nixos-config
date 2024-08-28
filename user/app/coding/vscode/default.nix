@@ -3,6 +3,8 @@
     programs.vscode = {
         enable = true;
 
+        package = pkgs.vscode.fhs;
+
         userSettings = {
             "terminal.integrated.fontFamily" = lib.mkForce "FiraMono Nerd Font";
             "terminal.integrated.fontSize" = lib.mkForce 15;
