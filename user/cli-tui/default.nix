@@ -27,6 +27,11 @@
 
         gitui.enable = true; # TUI for git
 
+        ssh = {
+            enable = true;
+            addKeysToAgent = "yes";
+        };
+
         #nix-index = { # to fix sqlite error thingy that fish had
                       # taken from https://discourse.nixos.org/t/command-not-found-unable-to-open-database/3807/8
             #enable = true;
