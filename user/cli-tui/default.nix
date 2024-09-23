@@ -1,4 +1,4 @@
-{config, pkgs, ...}:
+{config, pkgs, inputs, systemSettings, ...}:
 {
     imports = [
         ./git.nix
@@ -18,6 +18,8 @@
         jq # dependency of license fish plugin
 
         fd # find
+    ] ++ [
+        inputs.bibman.packages.${systemSettings.system}.bibman
     ];
 
     programs = {
