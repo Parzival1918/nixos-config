@@ -6,7 +6,7 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-      ../../system/hardware-configuration.nix
+      ./hardware-configuration.nix
       ../../system/pkgs.nix
       ../../system/stylix/stylix.nix
       ../../system/bluetooth
@@ -22,9 +22,9 @@
 
   # Bootloader.
   custom.bootloader = {
-    enble = true;
+    enable = true;
     type = systemSettings.bootloader;
-  }
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
