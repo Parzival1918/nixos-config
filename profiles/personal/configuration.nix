@@ -79,7 +79,7 @@
 
   environment.systemPackages = 
     (with pkgs; [
-        #nitrogen
+      conda
     ])
     ++
     (with pkgs-unstable; [
