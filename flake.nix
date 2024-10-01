@@ -19,6 +19,8 @@
 			url = "github:parzival1918/bibman/51a05e0ea3388617f87d19bb0aaee01e30726df6";
 		};
 
+		lobster.url = "github:justchokingaround/lobster";
+
         firefox-addons = {
             url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
             inputs.nixpkgs.follows = "nixpkgs";
