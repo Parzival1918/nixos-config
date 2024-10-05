@@ -54,7 +54,7 @@
 
 		lib = nixpkgs.lib;
 		pkgs = nixpkgs.legacyPackages.${systemSettings.system};
-		pkgs-unstable = nixpkgs-unstable.legacyPackages.${systemSettings.system};
+		pkgs-unstable = import nixpkgs-unstable { system = "${systemSettings.system}"; config.allowUnfree = true; };
 	in {
 		nixosConfigurations = {
 			system = lib.nixosSystem {
@@ -75,6 +75,7 @@
                             inherit pkgs-unstable;
 							inherit systemSettings;
 							inherit userSettings;
+							inherit nixpkgs-unstable;
 						};
 					}
 				];
@@ -84,6 +85,7 @@
                     inherit pkgs-unstable;
 					inherit systemSettings;
 					inherit userSettings;
+					inherit nixpkgs-unstable;
 				};
 			};	
 		};
