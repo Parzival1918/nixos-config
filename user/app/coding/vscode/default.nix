@@ -12,6 +12,7 @@ in
             "terminal.integrated.fontFamily" = lib.mkForce "FiraMono Nerd Font";
             "terminal.integrated.fontSize" = lib.mkForce 15;
             "python.languageServer" = lib.mkForce "Pylance";
+            "remote.SSH.configFile" = lib.mkForce "~/.ssh/vscode_config";
         };
 
         extensions = with pkgs.vscode-extensions; [
