@@ -121,17 +121,17 @@
         "poetry2nix": "poetry2nix"
       },
       "locked": {
-        "lastModified": 1728167053,
-        "narHash": "sha256-GDvDHdWdTfztMjQzrzTbolqXzR0jrzzcauBtpBoRZ+A=",
+        "lastModified": 1729197462,
+        "narHash": "sha256-bJy55TeKSap8RfWVGPtXyS+MFn1+sRuv3m2sAyxGvBU=",
         "owner": "parzival1918",
         "repo": "bibman",
-        "rev": "51c45bfd6c60b0654e84f327531f9cf6696e5ba2",
+        "rev": "cc05a07074e4e52f23675b921d8389922e1a2c44",
         "type": "github"
       },
       "original": {
         "owner": "parzival1918",
         "repo": "bibman",
-        "rev": "51c45bfd6c60b0654e84f327531f9cf6696e5ba2",
+        "rev": "cc05a07074e4e52f23675b921d8389922e1a2c44",
         "type": "github"
       }
     },

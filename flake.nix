@@ -16,7 +16,7 @@
 		};
 
 		bibman = {
-			url = "github:parzival1918/bibman/51c45bfd6c60b0654e84f327531f9cf6696e5ba2";
+			url = "github:parzival1918/bibman/cc05a07074e4e52f23675b921d8389922e1a2c44";
 		};
 
 		lobster.url = "github:justchokingaround/lobster";
