@@ -26,7 +26,7 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
-        stylix.url = "github:danth/stylix";
+        stylix.url = "github:danth/stylix/release-24.05";
 	};
 
 	outputs = {self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
