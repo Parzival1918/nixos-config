@@ -13,6 +13,10 @@ in
             "terminal.integrated.fontSize" = lib.mkForce 15;
             "python.languageServer" = lib.mkForce "Pylance";
             "remote.SSH.configFile" = lib.mkForce "~/.ssh/vscode_config";
+            "remote.SSH.serverInstallPath" = lib.mkForce {
+                "iridis6.soton.ac.uk" = lib.mkForce "/scratch/pjr1u24/vscode-server";
+            };
+            "remote.SSH.useExecServer" = lib.mkForce false;
         };
 
         extensions = with pkgs.vscode-extensions; [

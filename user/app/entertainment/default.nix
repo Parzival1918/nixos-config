@@ -2,6 +2,7 @@
 {
     home.packages = with pkgs; [
         popcorntime
+        netflix
     ] ++ [
         inputs.lobster.packages.${systemSettings.system}.lobster
     ];
